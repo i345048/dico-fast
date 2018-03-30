@@ -1,0 +1,18 @@
+# 开发环境配置
+# 数据源配置，请修改为你项目的实际配置
+#spring.datasource.url = jdbc:h2:mem:test
+#spring.datasource.username = sa
+#spring.datasource.password =
+#spring.datasource.driverClassName = org.h2.Driver
+#
+#
+#spring.datasource.schema=classpath:db/schema.sql
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema.sql
+
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <sitemesh:write property='head'/>
+</head>
+<body>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                    <li class="nav-item start ">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-home"></i>
+                            <span class="title">系统管理</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item start ">
+                                <a href="${req.contextPath}/roles/list" class="nav-link ajaxify">
+                                    <i class="icon-bar-chart"></i>
+                                    <span class="title">角色管理</span>
+                                </a>
+                            </li>
+                            <li class="nav-item start ">
+                                <a href="${req.contextPath}/roles/add" class="nav-link ajaxify">
+                                    <i class="icon-bulb"></i>
+                                    <span class="title">用户管理</span>
+                                    <span class="badge badge-success">1</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <!-- BEGIN CONTENT BODY -->
+            <div class="page-content">
+                <!-- BEGIN PAGE HEAD-->
+                <div class="page-head">
+                    <!-- BEGIN PAGE TITLE -->
+                    <!--<div class="page-title">-->
+                        <!--<h1>Managed Datatables-->
+                            <!--<small>managed datatable samples</small>-->
+                        <!--</h1>-->
+                    <!--</div>-->
+                    <!-- END PAGE TITLE -->
+                    <!-- BEGIN PAGE TOOLBAR -->
+                    <!-- END PAGE TOOLBAR -->
+                </div>
+                <!-- END PAGE HEAD-->
+                <!-- BEGIN PAGE BREADCRUMB -->
+                <ul class="page-breadcrumb breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <a href="#">Tables</a>
+                        <i class="fa fa-circle"></i>
+                    </li>
+                    <li>
+                        <span class="active">Datatables</span>
+                    </li>
+                </ul>
+                <!-- END PAGE BREADCRUMB -->
+                <!-- BEGIN PAGE BASE CONTENT -->
+                <div class="page-content-body">
+                    <sitemesh:write property='body'/>
+                </div>
+                <!-- END PAGE BASE CONTENT -->
+            </div>
+            <!-- END CONTENT BODY -->
+        </div>
+        <!-- END CONTENT -->
+        <!-- END SIDEBAR -->
+        <!-- BEGIN QUICK SIDEBAR -->
+        <a href="javascript:;" class="page-quick-sidebar-toggler">
+            <i class="icon-login"></i>
+        </a>
+    </div>
+
+</body>
+
+<pageScripts>
+    <sitemesh:write property='pageScripts'/>
+</pageScripts>
+
+
+</html>
