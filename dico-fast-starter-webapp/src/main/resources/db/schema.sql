@@ -29,9 +29,9 @@ alter table SYS_RESOURCES modify column PID varchar(32) comment '父级';
 -- ----------------------------
 -- Records of resources
 -- ----------------------------
-INSERT INTO SYS_RESOURCES VALUES ('00000000000000000000000000000000', '导航菜单', '1', '/', '/', 1, 'ffffffffffffffffffffffffffffffff');
+INSERT INTO SYS_RESOURCES VALUES ('00000000000000000000000000000000', '导航菜单', '1', '/', '/', 1, null);
 INSERT INTO SYS_RESOURCES VALUES ('063f50746a034e9b853677d9b91a490a', '留言板', '2', '/cms/guestbook/list', 'fa fa-comments', 30, 'd63fb68c3af44a5a9bc93afc3edba378');
-INSERT INTO SYS_RESOURCES VALUES ('08e27f9288d04c7a8839dc65f6cbd1fa', '用户管理', '2', '/sysUser/list', 'fa fa-user', 10, 'c617ec2d6eee475ea05fbe779ab3b7c8');
+INSERT INTO SYS_RESOURCES VALUES ('08e27f9288d04c7a8839dc65f6cbd1fa', '用户管理', '2', '/users/list', 'fa fa-user', 10, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('09d5b978a1c64a45b69097219d28fdcf', '评价', '2', '/cms/comment/list', 'fa fa-heartbeat', 20, 'd63fb68c3af44a5a9bc93afc3edba378');
 INSERT INTO SYS_RESOURCES VALUES ('0a0bf010a2e54ee5a82d0d2fe3708d2f', '部门管理', '2', '/sysDepartment/list', 'fa fa-sitemap', 8, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('0f2e7296b02d4d01997fbe9a660aaa1f', '经销商', '2', '/distributor/list', 'fa fa-globe', 40, '82591c22762c40d38579d0db5bd0343c');
@@ -76,7 +76,7 @@ INSERT INTO SYS_RESOURCES VALUES ('837ec95e01614891b916650875d136de', '发票表
 INSERT INTO SYS_RESOURCES VALUES ('87ed420bdd474d9fa164097eb14dccab', '商品规格', '1', '/productSpec/productSpec/list', 'fa fa-table', 34, '82591c22762c40d38579d0db5bd0343c');
 INSERT INTO SYS_RESOURCES VALUES ('8bf056fec564462e9f6dd02d89630b9d', '菜单管理', '2', '/sysMenu/list', 'fa fa-th-list', 1, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('8fb68d4012d34b6393c3d999dde478ad', '定时任务计划', '1', '/quartz/quartzConf/list', 'fa fa-hospital-o', 888, 'c617ec2d6eee475ea05fbe779ab3b7c8');
-INSERT INTO SYS_RESOURCES VALUES ('935acd7355634b278549b0ebbba01876', '角色管理', '2', '/sysRole/list', 'fa fa-user-md', 5, 'c617ec2d6eee475ea05fbe779ab3b7c8');
+INSERT INTO SYS_RESOURCES VALUES ('935acd7355634b278549b0ebbba01876', '角色管理', '2', '/roles/list', 'fa fa-user-md', 5, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('93ea441dfd154a0899ba58a8edc7fa64', '用户购物车', '1', '/orderlang/userCart/list', 'fa fa-truck', 50, 'b19335d14a0a4f57814cc54ad4fb4dc6');
 INSERT INTO SYS_RESOURCES VALUES ('95fee483e011455a822f9a9e6a483fce', '系统字典', '2', '/sys/dict/list', 'fa fa-indent', 99, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('9a7eb11ed94442a49d4d12b48f89b3b0', '已办任务', '1', '/actTask/historic', 'fa fa-sun-o', 10, '665a638d8ba9446c8da9fae0d8dd50e2');

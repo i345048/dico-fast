@@ -17,10 +17,10 @@ import java.util.Properties;
 /**
  * Mybatis & Mapper & PageHelper 配置
  */
-@Configuration
+//@Configuration
 public class MybatisConfig {
 
-    @Bean
+    //@Bean
     public SqlSessionFactory sqlSessionFactoryBean(@Qualifier("dataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean factory = new SqlSessionFactoryBean();
         factory.setDataSource(dataSource);
@@ -35,7 +35,7 @@ public class MybatisConfig {
         pageHelper.setProperties(properties);
 
         //添加插件
-        factory.setPlugins(new Interceptor[]{pageHelper});
+        //factory.setPlugins(new Interceptor[]{pageHelper});
 
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -43,7 +43,7 @@ public class MybatisConfig {
         return factory.getObject();
     }
 
-    @Bean
+    //@Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");

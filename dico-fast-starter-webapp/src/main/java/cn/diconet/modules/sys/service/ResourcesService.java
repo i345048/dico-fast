@@ -16,13 +16,6 @@ import java.util.List;
  * @date 2018\3\30 003016:49
  */
 @Service
-public class ResourcesService{
+public class ResourcesService extends AbstractService<Resources>{
 
-    @Autowired
-    private ResourcesRepo resourcesRepo;
-
-    public List<Resources> findMenus(String catalog){
-
-        return resourcesRepo.selectMenu(catalog);
-    }
 }

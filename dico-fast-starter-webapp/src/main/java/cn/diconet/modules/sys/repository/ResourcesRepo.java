@@ -12,7 +12,7 @@ import java.util.List;
  * @Description: 描述
  * @date 2018\3\30 003016:49
  */
-public interface ResourcesRepo{
+public interface ResourcesRepo extends Mapper<Resources>{
 
-    List<Resources> selectMenu(String catalog);
+    //List<Resources> selectMenu(String catalog);
 }

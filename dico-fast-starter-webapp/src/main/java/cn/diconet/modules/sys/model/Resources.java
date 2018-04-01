@@ -3,6 +3,7 @@ package cn.diconet.modules.sys.model;
 import lombok.Data;
 
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -12,6 +13,7 @@ import java.util.List;
  * @date 2018\3\30 003016:45
  */
 @Data
+@Table(name = "SYS_RESOURCES")
 public class Resources {
 
     @Id
@@ -21,5 +23,6 @@ public class Resources {
     private String url;
     private String icon;
     private Integer priority;
-    private List<Resources> children;
+    private String pid;
+    // private List<Resources> children;
 }

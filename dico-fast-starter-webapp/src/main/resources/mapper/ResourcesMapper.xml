@@ -2,26 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.diconet.modules.sys.repository.ResourcesRepo" >
 
-    <resultMap id="ResourcesMap" type="cn.diconet.modules.sys.model.Resources">
-        <id property="id" column="id"></id>
-        <result property="name" column="NAME" jdbcType="VARCHAR"></result>
-        <result property="type" column="TYPE" jdbcType="VARCHAR"></result>
-        <result property="url" column="URL" jdbcType="VARCHAR"></result>
-        <result property="icon" column="ICON" jdbcType="VARCHAR"></result>
-        <result property="priority" column="PRIORITY" jdbcType="INTEGER"></result>
+    <!--<resultMap id="ResourcesMap" type="cn.diconet.modules.sys.model.Resources">-->
+        <!--<id property="id" column="id"></id>-->
+        <!--<result property="name" column="NAME" jdbcType="VARCHAR"></result>-->
+        <!--<result property="type" column="TYPE" jdbcType="VARCHAR"></result>-->
+        <!--<result property="url" column="URL" jdbcType="VARCHAR"></result>-->
+        <!--<result property="icon" column="ICON" jdbcType="VARCHAR"></result>-->
+        <!--<result property="priority" column="PRIORITY" jdbcType="INTEGER"></result>-->
 
-        <collection property="children"  ofType="cn.diconet.modules.sys.model.Resources">
-            <id property="id" column="S_ID"></id>
-            <result property="name" column="S_NAME" jdbcType="VARCHAR"></result>
-            <result property="type" column="S_TYPE" jdbcType="VARCHAR"></result>
-            <result property="url" column="S_URL" jdbcType="VARCHAR"></result>
-            <result property="icon" column="S_ICON" jdbcType="VARCHAR"></result>
-            <result property="priority" column="S_PRIORITY" jdbcType="INTEGER"></result>
-        </collection>
-    </resultMap>
+        <!--<collection property="children"  ofType="cn.diconet.modules.sys.model.Resources">-->
+            <!--<id property="id" column="S_ID"></id>-->
+            <!--<result property="name" column="S_NAME" jdbcType="VARCHAR"></result>-->
+            <!--<result property="type" column="S_TYPE" jdbcType="VARCHAR"></result>-->
+            <!--<result property="url" column="S_URL" jdbcType="VARCHAR"></result>-->
+            <!--<result property="icon" column="S_ICON" jdbcType="VARCHAR"></result>-->
+            <!--<result property="priority" column="S_PRIORITY" jdbcType="INTEGER"></result>-->
+        <!--</collection>-->
+    <!--</resultMap>-->
 
-    <select id="selectMenu" resultMap="ResourcesMap" parameterType="String">
-        select A.ID,A.NAME,A.TYPE,A.URL,A.ICON,A.PRIORITY, B.ID AS S_ID,B.NAME AS S_NAME ,B.TYPE AS S_TYPE,B.URL AS S_URL,B.ICON AS S_ICON,B.PRIORITY AS S_PRIORITY from SYS_RESOURCES A
-        INNER JOIN SYS_RESOURCES B ON A.ID=B.PID WHERE A.TYPE=#{catalog} order by A.PRIORITY
-    </select>
+    <!--<select id="selectMenu" resultMap="ResourcesMap" parameterType="String">-->
+        <!--select A.ID,A.NAME,A.TYPE,A.URL,A.ICON,A.PRIORITY, B.ID AS S_ID,B.NAME AS S_NAME ,B.TYPE AS S_TYPE,B.URL AS S_URL,B.ICON AS S_ICON,B.PRIORITY AS S_PRIORITY from SYS_RESOURCES A-->
+        <!--INNER JOIN SYS_RESOURCES B ON A.ID=B.PID WHERE A.TYPE=#{catalog} order by A.PRIORITY-->
+    <!--</select>-->
 </mapper>
