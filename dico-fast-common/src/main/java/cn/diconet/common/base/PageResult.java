@@ -1,4 +1,4 @@
-package cn.diconet.web;
+package cn.diconet.common.base;
 
 import java.util.ArrayList;
 import java.util.List;

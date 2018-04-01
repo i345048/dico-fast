@@ -6,7 +6,10 @@ import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.servlet.ServletRequest;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author Administrator
@@ -50,7 +53,6 @@ public class DynamicConditionUtils {
 
     /**
      * 将request中指定参数转换为查询条件
-     * @param request
      * @return
      */
     public static Condition getSearchCondition(Map<String, Object> searchParams ,Class clazz){

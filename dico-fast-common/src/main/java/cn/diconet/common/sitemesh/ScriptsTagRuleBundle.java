@@ -1,4 +1,4 @@
-package cn.diconet.web.sitemesh;
+package cn.diconet.common.sitemesh;
 
 import org.sitemesh.SiteMeshContext;
 import org.sitemesh.content.ContentProperty;

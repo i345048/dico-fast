@@ -1,4 +1,4 @@
-package cn.diconet.web;
+package cn.diconet.common.base;
 
 import com.alibaba.fastjson.JSON;
 

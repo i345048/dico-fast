@@ -1,4 +1,4 @@
-package cn.diconet.web;
+package cn.diconet.common.base;
 
 /**
  * 响应结果生成工具

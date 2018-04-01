@@ -1,8 +1,5 @@
-package cn.diconet.common.service;
+package cn.diconet.common.base;
 
-
-import cn.diconet.common.repository.Mapper;
-import org.apache.ibatis.exceptions.TooManyResultsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.entity.Condition;
 
@@ -10,17 +7,14 @@ import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-/**
- * 基于通用MyBatis Mapper插件的Service接口的实现
- */
-public abstract class AbstractService<T> implements Service<T> {
+public abstract class MybatisService<T>  implements Service<T>  {
 
     @Autowired
-    protected Mapper<T> mapper;
+    protected MybatisMapper<T> mapper;
 
     private Class<T> modelClass;    // 当前泛型真实类型的Class
 
-    public AbstractService() {
+    public MybatisService() {
         ParameterizedType pt = (ParameterizedType) this.getClass().getGenericSuperclass();
         modelClass = (Class<T>) pt.getActualTypeArguments()[0];
     }
@@ -50,7 +44,7 @@ public abstract class AbstractService<T> implements Service<T> {
     }
 
     @Override
-    public T findBy(String fieldName, Object value) throws TooManyResultsException {
+    public T findBy(String fieldName, Object value) {
         try {
             T model = modelClass.newInstance();
             Field field = modelClass.getDeclaredField(fieldName);

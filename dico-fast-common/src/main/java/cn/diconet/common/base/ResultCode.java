@@ -1,4 +1,4 @@
-package cn.diconet.web;
+package cn.diconet.common.base;
 
 /**
  * 响应码枚举，参考HTTP状态码的语义
