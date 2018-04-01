@@ -1,5 +1,6 @@
-package cn.diconet.web.sitemesh;
+package cn.diconet.config;
 
+import cn.diconet.common.sitemesh.ScriptsTagRuleBundle;
 import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.sitemesh.config.ConfigurableSiteMeshFilter;
 import org.springframework.context.annotation.Configuration;

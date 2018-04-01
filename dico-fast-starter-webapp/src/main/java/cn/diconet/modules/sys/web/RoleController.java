@@ -1,12 +1,12 @@
 package cn.diconet.modules.sys.web;
 
-import cn.diconet.common.service.ServiceException;
+import cn.diconet.common.base.PageResult;
+import cn.diconet.common.base.Result;
+import cn.diconet.common.base.ResultGenerator;
+import cn.diconet.common.base.ServiceException;
 import cn.diconet.common.util.DynamicConditionUtils;
 import cn.diconet.modules.sys.model.Role;
 import cn.diconet.modules.sys.service.RoleService;
-import cn.diconet.web.PageResult;
-import cn.diconet.web.Result;
-import cn.diconet.web.ResultGenerator;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 @RequestMapping("/roles")
