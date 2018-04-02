@@ -1,6 +1,5 @@
 package cn.diconet.modules.sys.web;
 
-import cn.diconet.common.model.dto.ResourceDto;
 import cn.diconet.common.util.DozerMapper;
 import cn.diconet.modules.sys.model.Resources;
 import cn.diconet.modules.sys.service.ResourcesFeignClient;
@@ -27,35 +26,31 @@ public class IndexController {
 
     @Autowired
     private ResourcesService service;
-
-    @Autowired
-    private ResourcesFeignClient resourcesFeignClient;
-
     @RequestMapping("index")
     public String index() {
         return "index";
     }
 
-    public List<ResourceDto> getMenus() {
-//       List<Resources> resourcesList=service.findAll();
-//       List<Menu> menuList= DozerMapper.mapList(resourcesList,Menu.class);
-//
-//       List<Menu> parents=Lists.newArrayList();
-//       //遍历所有的菜单
-//        for(Iterator<Menu> iter=menuList.iterator();iter.hasNext();){
-//            //当前菜单
-//            Menu current=iter.next();
-//            if(current.getPid()==null){
-//                parents.add(current);
-//                iter.remove();
-//            }
-//        }
-//
-//        for(Iterator<Menu> iter=parents.iterator();iter.hasNext();){
-//            Menu parent=iter.next();
-//            parent.setChildren(recurSubMenu(parent.getId(),menuList));
-//        }
-        return resourcesFeignClient.getResources();
+    public List<Menu> getMenus() {
+       List<Resources> resourcesList=service.findAll();
+       List<Menu> menuList= DozerMapper.mapList(resourcesList,Menu.class);
+
+       List<Menu> parents=Lists.newArrayList();
+       //遍历所有的菜单
+        for(Iterator<Menu> iter=menuList.iterator();iter.hasNext();){
+            //当前菜单
+            Menu current=iter.next();
+            if(current.getPid()==null){
+                parents.add(current);
+                iter.remove();
+            }
+        }
+
+        for(Iterator<Menu> iter=parents.iterator();iter.hasNext();){
+            Menu parent=iter.next();
+            parent.setChildren(recurSubMenu(parent.getId(),menuList));
+        }
+        return parents;
     }
 
     private List<Menu> recurSubMenu(String pid, List<Menu> menuList) {

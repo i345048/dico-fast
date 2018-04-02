@@ -29,7 +29,7 @@ alter table SYS_RESOURCES modify column PID varchar(32) comment '父级';
 -- ----------------------------
 -- Records of resources
 -- ----------------------------
-INSERT INTO SYS_RESOURCES VALUES ('00000000000000000000000000000000', '导航菜单', '1', '/', '/', 1, null);
+INSERT INTO SYS_RESOURCES VALUES ('0', '导航菜单', '1', '/', '/', 1, null);
 INSERT INTO SYS_RESOURCES VALUES ('063f50746a034e9b853677d9b91a490a', '留言板', '2', '/cms/guestbook/list', 'fa fa-comments', 30, 'd63fb68c3af44a5a9bc93afc3edba378');
 INSERT INTO SYS_RESOURCES VALUES ('08e27f9288d04c7a8839dc65f6cbd1fa', '用户管理', '2', '/users/list', 'fa fa-user', 10, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('09d5b978a1c64a45b69097219d28fdcf', '评价', '2', '/cms/comment/list', 'fa fa-heartbeat', 20, 'd63fb68c3af44a5a9bc93afc3edba378');
@@ -66,11 +66,11 @@ INSERT INTO SYS_RESOURCES VALUES ('4fde67324b0d4fbfaff06ce28836482d', '发货管
 INSERT INTO SYS_RESOURCES VALUES ('59db9ca1a1ee496fa8e3fae559e30666', '组员管理', '1', '/exam/groupUser/list', 'fa fa-user', 6, '687747d2bd6d4edbbc2deff348469fbb');
 INSERT INTO SYS_RESOURCES VALUES ('5c0c01825b124302aa131123178ec112', '流程建模', '1', '/', 'fa fa-random', 30, 'b48d762c01c54dce95c31fb42204d126');
 INSERT INTO SYS_RESOURCES VALUES ('62e818ed15e647bdad4bee8f199ba21f', '业务表建模', '1', '/sys/mod/db/list', 'fa fa-database', 11, 'b48d762c01c54dce95c31fb42204d126');
-INSERT INTO SYS_RESOURCES VALUES ('665a638d8ba9446c8da9fae0d8dd50e2', '活动审批', '1', '/', 'fa fa-street-view', 77, '00000000000000000000000000000000');
-INSERT INTO SYS_RESOURCES VALUES ('687747d2bd6d4edbbc2deff348469fbb', '学习考试', '1', '/', 'fa fa-book', 55, '00000000000000000000000000000000');
+INSERT INTO SYS_RESOURCES VALUES ('665a638d8ba9446c8da9fae0d8dd50e2', '活动审批', '1', '/', 'fa fa-street-view', 77, '0');
+INSERT INTO SYS_RESOURCES VALUES ('687747d2bd6d4edbbc2deff348469fbb', '学习考试', '1', '/', 'fa fa-book', 55, '0');
 INSERT INTO SYS_RESOURCES VALUES ('69d0dbfe78684c19bc2200fe35e32685', '学习情况', '1', '/cms/study/list', 'fa fa-thumbs-o-up', 88, 'd63fb68c3af44a5a9bc93afc3edba378');
 INSERT INTO SYS_RESOURCES VALUES ('701d932d0ea74dbd989fd86e6f21c0b6', '物流信息', '1', '/warehouse/logisticsLog/list', 'fa fa-truck', 8, '82591c22762c40d38579d0db5bd0343c');
-INSERT INTO SYS_RESOURCES VALUES ('82591c22762c40d38579d0db5bd0343c', '订货郎', '1', '/', 'fa fa-glass', 1, '00000000000000000000000000000000');
+INSERT INTO SYS_RESOURCES VALUES ('82591c22762c40d38579d0db5bd0343c', '订货郎', '1', '/', 'fa fa-glass', 1, '0');
 INSERT INTO SYS_RESOURCES VALUES ('82aa90cb5a2b4b6e9592153e9fce6435', '已结束实例', '1', '/actProcess/history', 'fa fa-circle', 40, '5c0c01825b124302aa131123178ec112');
 INSERT INTO SYS_RESOURCES VALUES ('837ec95e01614891b916650875d136de', '发票表', '1', '/orderlang/invoice/list', 'fa fa-list-alt', 60, 'e6b3d6ce38f84862b1295ae0c55b0ddf');
 INSERT INTO SYS_RESOURCES VALUES ('87ed420bdd474d9fa164097eb14dccab', '商品规格', '1', '/productSpec/productSpec/list', 'fa fa-table', 34, '82591c22762c40d38579d0db5bd0343c');
@@ -95,16 +95,16 @@ INSERT INTO SYS_RESOURCES VALUES ('b19335d14a0a4f57814cc54ad4fb4dc6', '采购商
 INSERT INTO SYS_RESOURCES VALUES ('b1af2ddcb4a14102890e90f338656df2', '模板', '1', '/cms/template/list', 'fa fa-file-text-o', 7, 'd63fb68c3af44a5a9bc93afc3edba378');
 INSERT INTO SYS_RESOURCES VALUES ('b2f8dab119ed493fb260d21b054a16bc', '分组管理', '1', '/exam/group/list', 'fa fa-sitemap', 5, '687747d2bd6d4edbbc2deff348469fbb');
 INSERT INTO SYS_RESOURCES VALUES ('b3d67c1d94d7408f878d9c0726d9f09c', '权限管理', '2', '/sysPermission/list', 'fa fa-tags', 7, 'c617ec2d6eee475ea05fbe779ab3b7c8');
-INSERT INTO SYS_RESOURCES VALUES ('b48d762c01c54dce95c31fb42204d126', '系统建模', '1', '/', 'fa fa-medium', 88, '00000000000000000000000000000000');
+INSERT INTO SYS_RESOURCES VALUES ('b48d762c01c54dce95c31fb42204d126', '系统建模', '1', '/', 'fa fa-medium', 88, '0');
 INSERT INTO SYS_RESOURCES VALUES ('b8aba593a73143018ca1942afa8936f6', '模块文章关联', '1', '/cms/portletArticle/list', 'fa fa-object-ungroup', 18, 'd63fb68c3af44a5a9bc93afc3edba378');
 INSERT INTO SYS_RESOURCES VALUES ('beaf06596cb5490c9f16ef594ebeff37', '商品附件', '1', '/productAttachment/productAttachment/list', 'fa fa-folder-open-o', 33, '82591c22762c40d38579d0db5bd0343c');
 INSERT INTO SYS_RESOURCES VALUES ('bf7b7fb56f574cda8355fe5aa6e7735c', '数据库字典', '2', '/sys/db/list', 'fa fa-list', 90, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('c1b2318955ad4e64a71a43e5df359013', '商品分类', '1', '/productCategory/list', 'fa fa-indent', 37, '82591c22762c40d38579d0db5bd0343c');
-INSERT INTO SYS_RESOURCES VALUES ('c617ec2d6eee475ea05fbe779ab3b7c8', '系统管理', '1', '/', 'fa fa-th', 99, '00000000000000000000000000000000');
+INSERT INTO SYS_RESOURCES VALUES ('c617ec2d6eee475ea05fbe779ab3b7c8', '系统管理', '1', '/', 'fa fa-th', 99, '0');
 INSERT INTO SYS_RESOURCES VALUES ('c7f3c7ae92de43ae8b40b91ca5c9a2b6', '采购商用户关系', '1', '/orderlang/purchaserUser/list', 'fa fa-align-center', 70, 'b19335d14a0a4f57814cc54ad4fb4dc6');
 INSERT INTO SYS_RESOURCES VALUES ('cdec666c49a44d5a94e39fc858963138', '题库管理', '1', '/exam/questionLibrary/list', 'fa fa-database', 1, '687747d2bd6d4edbbc2deff348469fbb');
 INSERT INTO SYS_RESOURCES VALUES ('cfa08a6b59134ef885a1cab4ed74edef', '出库商品', '1', '/warehouse/outboundProduct/list', 'fa fa-database', 7, '82591c22762c40d38579d0db5bd0343c');
-INSERT INTO SYS_RESOURCES VALUES ('d63fb68c3af44a5a9bc93afc3edba378', '内容发布', '1', '/', 'fa fa-file-text-o', 66, '00000000000000000000000000000000');
+INSERT INTO SYS_RESOURCES VALUES ('d63fb68c3af44a5a9bc93afc3edba378', '内容发布', '1', '/', 'fa fa-file-text-o', 66, '0');
 INSERT INTO SYS_RESOURCES VALUES ('e293c0ce48354d1896934700e1f0282c', '模块管理', '2', '/sysModule/list', 'fa fa-cubes', 3, 'c617ec2d6eee475ea05fbe779ab3b7c8');
 INSERT INTO SYS_RESOURCES VALUES ('e6b3d6ce38f84862b1295ae0c55b0ddf', '订单模块', '1', '/', 'fa fa-list-alt', 10, '82591c22762c40d38579d0db5bd0343c');
 INSERT INTO SYS_RESOURCES VALUES ('f0e20585d58f430d97ccee086d6cd3f9', '试题管理', '1', '/exam/question/list', 'fa fa-database', 1, '687747d2bd6d4edbbc2deff348469fbb');

@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-public abstract class MybatisService<T>  implements Service<T>  {
+public abstract class MybatisService<T>  implements Service<T,Integer>  {
 
     @Autowired
     protected MybatisMapper<T> mapper;

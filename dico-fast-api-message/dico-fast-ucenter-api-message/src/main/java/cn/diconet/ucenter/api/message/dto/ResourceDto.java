@@ -1,4 +1,4 @@
-package cn.diconet.common.model.dto;
+package cn.diconet.ucenter.api.message.dto;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

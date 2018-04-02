@@ -1,11 +1,11 @@
 package cn.diconet.modules.sys.web;
 
-import cn.diconet.common.model.dto.ResourceDto;
 import cn.diconet.modules.sys.service.ResourcesFeignClient;
+import cn.diconet.ucenter.api.message.dto.ResourceDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,9 +23,9 @@ public class ResourcesController {
     @Autowired
     private ResourcesFeignClient resourcesFeignClient;
 
-    @GetMapping("menus")
-    public List<ResourceDto> getMenus() {
+    @GetMapping("menus/{id}")
+    public List<ResourceDto> getResources(@PathVariable String id) {
 
-        return resourcesFeignClient.getResources();
+        return resourcesFeignClient.getResources(id);
     }
 }

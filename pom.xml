@@ -14,7 +14,7 @@
         <module>dico-fast-common</module>
         <module>dico-fast-discovery-eureka</module>
         <module>dico-fast-user-center</module>
-        <module>dico-fast-common-messge</module>
+        <module>dico-fast-api-message</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->

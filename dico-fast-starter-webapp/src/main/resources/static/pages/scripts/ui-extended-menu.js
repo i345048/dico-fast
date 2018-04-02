@@ -89,7 +89,7 @@ var LeftMenu = (function() {
             // var d={};
             // d['search_parent.sn_EQ']='root';
             $.ajax({
-                url: App.getGlobalContentPath() + '/menus',
+                url: App.getGlobalContentPath() + '/menus/0',
                 type: 'GET',
                 //dataType: 'json',
                 async : false,

@@ -9,7 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dico-fast-common-messge</artifactId>
+    <artifactId>dico-fast-api-message</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>dico-fast-ucenter-api-message</module>
+    </modules>
 
     <dependencies>
         <dependency>
