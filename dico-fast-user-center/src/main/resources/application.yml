@@ -1,0 +1,19 @@
+
+spring:
+#  jersey:
+#    application-path: /api
+  profiles:
+    active: dev
+  application:
+    name: ucenter
+
+server:
+  port: 9080
+  #context-path: /api
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+  instance:
+    prefer-ip-address: true # 表示将自己的ip注册到eureka server
+

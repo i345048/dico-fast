@@ -1,7 +1,9 @@
 package cn.diconet.modules.sys.web;
 
+import cn.diconet.common.model.dto.ResourceDto;
 import cn.diconet.common.util.DozerMapper;
 import cn.diconet.modules.sys.model.Resources;
+import cn.diconet.modules.sys.service.ResourcesFeignClient;
 import cn.diconet.modules.sys.service.ResourcesService;
 import cn.diconet.modules.sys.web.vo.Menu;
 import com.google.common.collect.Lists;
@@ -26,49 +28,49 @@ public class IndexController {
     @Autowired
     private ResourcesService service;
 
+    @Autowired
+    private ResourcesFeignClient resourcesFeignClient;
+
     @RequestMapping("index")
-    public String index(){
+    public String index() {
         return "index";
     }
 
-    @GetMapping("menus")
-    @ResponseBody
-    public List<Menu> getMenus(){
-       List<Resources> resourcesList=service.findAll();
-       List<Menu> menuList= DozerMapper.mapList(resourcesList,Menu.class);
-
-       List<Menu> parents=Lists.newArrayList();
-       //遍历所有的菜单
-        for(Iterator<Menu> iter=menuList.iterator();iter.hasNext();){
-            //当前菜单
-            Menu current=iter.next();
-            if(current.getPid()==null){
-                parents.add(current);
-                iter.remove();
-            }
-        }
-
-        for(Iterator<Menu> iter=parents.iterator();iter.hasNext();){
-            Menu parent=iter.next();
-            parent.setChildren(recurSubMenu(parent.getId(),menuList));
-        }
-
-        return parents;
+    public List<ResourceDto> getMenus() {
+//       List<Resources> resourcesList=service.findAll();
+//       List<Menu> menuList= DozerMapper.mapList(resourcesList,Menu.class);
+//
+//       List<Menu> parents=Lists.newArrayList();
+//       //遍历所有的菜单
+//        for(Iterator<Menu> iter=menuList.iterator();iter.hasNext();){
+//            //当前菜单
+//            Menu current=iter.next();
+//            if(current.getPid()==null){
+//                parents.add(current);
+//                iter.remove();
+//            }
+//        }
+//
+//        for(Iterator<Menu> iter=parents.iterator();iter.hasNext();){
+//            Menu parent=iter.next();
+//            parent.setChildren(recurSubMenu(parent.getId(),menuList));
+//        }
+        return resourcesFeignClient.getResources();
     }
 
     private List<Menu> recurSubMenu(String pid, List<Menu> menuList) {
 
-        List<Menu> subMenuList=Lists.newArrayList();
+        List<Menu> subMenuList = Lists.newArrayList();
 
-        if(CollectionUtils.isEmpty(menuList)){
+        if (CollectionUtils.isEmpty(menuList)) {
             return subMenuList;
         }
-        for(Iterator<Menu> iter=menuList.iterator();iter.hasNext();){
-            Menu current=iter.next();
+        for (Iterator<Menu> iter = menuList.iterator(); iter.hasNext(); ) {
+            Menu current = iter.next();
             //如果为子菜单
-            if(pid.equals(current.getPid())){
+            if (pid.equals(current.getPid())) {
                 //iter.remove();
-                current.setChildren(recurSubMenu(current.getId(),menuList));
+                current.setChildren(recurSubMenu(current.getId(), menuList));
                 subMenuList.add(current);
             }
         }

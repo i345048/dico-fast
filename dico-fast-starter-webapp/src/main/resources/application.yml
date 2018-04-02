@@ -17,8 +17,22 @@ spring:
       number_format: '0.##' #数字格式化，无小数点
   profiles:
     active: dev
+  application:
+    name: webapp
 
 server:
-  port: 8081
+  port: 9081
+  context-path: /
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+  instance:
+    prefer-ip-address: true # 表示将自己的ip注册到eureka server
+
+feign:
+  hystrix:
+   enabled: true
 
 

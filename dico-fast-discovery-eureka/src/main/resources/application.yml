@@ -1,0 +1,9 @@
+server:
+  port: 8001
+eureka:
+  client:
+    register-with-eureka: false # 表示是否将自己注册到Eureka server,默认为true。 由于当前自己就是Server 所以为false
+    fetch-registry: false # 表示是否从Eureka server获取注册信息,默认为true 因为这是一个单点的Server 故为fase
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+
