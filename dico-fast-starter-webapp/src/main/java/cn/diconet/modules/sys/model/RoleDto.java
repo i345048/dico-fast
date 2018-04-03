@@ -1,4 +1,4 @@
-package cn.diconet.ucenter.api.message.dto;
+package cn.diconet.modules.sys.model;
 
 import lombok.Data;
 

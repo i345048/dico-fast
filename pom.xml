@@ -14,7 +14,6 @@
         <module>dico-fast-common</module>
         <module>dico-fast-discovery-eureka</module>
         <module>dico-fast-user-center</module>
-        <module>dico-fast-api-message</module>
         <module>dico-fast-api-gateway</module>
     </modules>
 
@@ -22,7 +21,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.3.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
     </parent>
 
     <properties>
@@ -31,8 +30,8 @@
         <java.version>1.8</java.version>
         <dozer.version>5.5.1</dozer.version>
         <guava.version>18.0</guava.version>
-        <spring-boot.version>1.4.3.RELEASE</spring-boot.version>
-        <spring-cloud.version>Camden.SR4</spring-cloud.version>
+        <spring-boot.version>1.5.10.RELEASE</spring-boot.version>
+        <spring-cloud.version>Edgware.SR3</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -41,6 +40,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-hystrix</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
 
     <dependencyManagement>

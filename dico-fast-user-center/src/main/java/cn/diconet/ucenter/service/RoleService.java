@@ -1,8 +1,6 @@
 package cn.diconet.ucenter.service;
 
 import cn.diconet.common.base.JpaService;
-import cn.diconet.common.util.DozerMapper;
-import cn.diconet.ucenter.api.message.dto.RoleDto;
 import cn.diconet.ucenter.model.Role;
 import cn.diconet.ucenter.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

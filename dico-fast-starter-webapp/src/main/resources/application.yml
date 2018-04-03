@@ -15,10 +15,32 @@ spring:
     template-loader-path: classpath:/templates/ #模板加载路径 按需配置
     settings:
       number_format: '0.##' #数字格式化，无小数点
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
   application:
     name: webapp
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema.sql
+
+mybatis:
+    type-aliases-package: cn.diconet.modules.sys.model
+    mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers: cn.diconet.common.base.MybatisMapper
+    not-empty: false
+    identity: H2
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
+    pageSizeZero: true
 
 server:
   port: 9081
@@ -31,11 +53,21 @@ eureka:
   instance:
     prefer-ip-address: true
 
-feign:
-  hystrix:
-   enabled: true
+#feign:
+#  hystrix:
+#    enabled: true
 
-ribbon:
-  eager-load:
-    enabled: true
-    clients: ucenter
+#ribbon:
+#  eager-load:
+#    enabled: true
+#    clients: ucenter,webapp,api-gateway
+
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          enabled: false
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000

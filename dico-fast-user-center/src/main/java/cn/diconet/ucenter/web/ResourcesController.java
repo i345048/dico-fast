@@ -1,6 +1,5 @@
 package cn.diconet.ucenter.web;
 
-import cn.diconet.ucenter.api.message.dto.ResourceDto;
 import cn.diconet.ucenter.model.Resources;
 import cn.diconet.ucenter.service.ResourcesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class ResourcesController {
     private ResourcesService service;
 
     @GetMapping("resources/{id}")
-    public List<ResourceDto> getResource(@PathVariable("id") String id){
+    public List<Resources> getResource(@PathVariable("id") String id){
         Resources resources=new Resources();
         Resources parent=new Resources();
         parent.setId(id);

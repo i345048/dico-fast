@@ -4,7 +4,6 @@ import cn.diconet.common.base.Result;
 import cn.diconet.modules.sys.model.Page;
 import cn.diconet.modules.sys.model.ResourcesDto2;
 import cn.diconet.modules.sys.model.Role;
-import cn.diconet.ucenter.api.message.dto.ResourceDto;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +15,8 @@ import java.util.List;
  * @Description: 描述
  * @date 2018\4\2 000217:55
  */
-@FeignClient(name = "api-gateway/ucenter")
-//@FeignClient(name = "ucenter")
+//@FeignClient(name = "api-gateway/ucenter")
+@FeignClient(name = "ucenter",url="http://localhost:8002/ucenter")
 public interface UCenterFeignClient {
 
     @RequestMapping(value = "/resources/{id}",method = RequestMethod.GET)

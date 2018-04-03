@@ -7,8 +7,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8001/eureka
-    register-with-eureka: true
-    fetch-registry: true
   instance:
     prefer-ip-address: true
 
@@ -18,22 +16,19 @@ zuul:
       path: /ucenter/**
       stripPrefix: true
       serviceId: ucenter
-  ignored-services: *
+    api-gateway:
+      path: /api-gateway/**
+      stripPrefix: true
+      serviceId: api-gateway
+  ignored-services: '*'
+#  ribbon:
+#    eager-load:
+#      enabled: true
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
+#feign:
+#  hystrix:
+#    enabled: true
 
-ribbon:
-  ConnectTimeout: 3000
-  ReadTimeout: 60000
 
-zuul:
-  ribbon:
-    eager-load:
-      enabled: true
+
 

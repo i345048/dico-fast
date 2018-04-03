@@ -1,6 +1,5 @@
 package cn.diconet.modules.sys.model;
 
-import cn.diconet.ucenter.api.message.dto.ResourceDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.google.common.collect.Lists;

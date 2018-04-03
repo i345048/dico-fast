@@ -3,8 +3,7 @@ package cn.diconet.ucenter.web;
 import cn.diconet.common.base.Result;
 import cn.diconet.common.base.ResultGenerator;
 import cn.diconet.common.base.ServiceException;
-import cn.diconet.ucenter.api.message.dto.PermissionDto;
-import cn.diconet.ucenter.api.message.dto.RoleDto;
+import cn.diconet.ucenter.model.Permission;
 import cn.diconet.ucenter.model.Role;
 import cn.diconet.ucenter.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class RoleController {
@@ -38,12 +36,12 @@ public class RoleController {
 //    }
 
     @GetMapping("roles/{id}")
-    public RoleDto getRole(@PathVariable("id") Integer id) {
+    public Role getRole(@PathVariable("id") Integer id) {
         return null;
     }
 
     @GetMapping("roles/{id}/permissions")
-    public List<PermissionDto> getRolePerms(@PathVariable("id") Integer id) {
+    public List<Permission> getRolePerms(@PathVariable("id") Integer id) {
         return null;
     }
 
@@ -75,7 +73,7 @@ public class RoleController {
     }
 
     @PatchMapping("roles/{id}")
-    public Result patchRole(@PathVariable("id") Integer id, @RequestBody RoleDto role) {
+    public Result patchRole(@PathVariable("id") Integer id, @RequestBody Role role) {
         return null;
     }
 

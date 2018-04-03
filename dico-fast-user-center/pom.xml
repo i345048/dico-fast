@@ -21,12 +21,6 @@
 
 		<dependency>
 			<groupId>cn.diconet</groupId>
-			<artifactId>dico-fast-ucenter-api-message</artifactId>
-			<version>1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>cn.diconet</groupId>
 			<artifactId>dico-fast-common</artifactId>
 			<version>1.0</version>
 			<exclusions>

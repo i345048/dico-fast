@@ -2,16 +2,27 @@
 spring:
 #  jersey:
 #    application-path: /api
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
   application:
     name: ucenter
+  datasource:
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema.sql
+  jpa:
+  #  show-sql: true
+    hibernate:
+      ddl-auto: none
 
 server:
   port: 9080
   #context-path: /api
 eureka:
   client:
+#    register-with-eureka: false
     service-url:
       defaultZone: http://localhost:8001/eureka/
   instance:

@@ -25,12 +25,6 @@ public class GatewayApplication {
         return new AccessFilter();
     }
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate(){
-        return new RestTemplate();
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
     }
