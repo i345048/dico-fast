@@ -1,0 +1,39 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+zuul:
+  routes:
+    ucenter:
+      path: /ucenter/**
+      stripPrefix: true
+      serviceId: ucenter
+  ignored-services: *
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
+
+zuul:
+  ribbon:
+    eager-load:
+      enabled: true
+

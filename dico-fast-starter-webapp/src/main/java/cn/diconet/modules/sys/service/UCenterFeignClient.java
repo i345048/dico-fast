@@ -16,7 +16,8 @@ import java.util.List;
  * @Description: 描述
  * @date 2018\4\2 000217:55
  */
-@FeignClient(name = "ucenter")
+@FeignClient(name = "api-gateway/ucenter")
+//@FeignClient(name = "ucenter")
 public interface UCenterFeignClient {
 
     @RequestMapping(value = "/resources/{id}",method = RequestMethod.GET)

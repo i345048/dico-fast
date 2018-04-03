@@ -6,9 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class DicoFastUserCenterApplication {
+public class UserCenterApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DicoFastUserCenterApplication.class, args);
+		SpringApplication.run(UserCenterApplication.class, args);
 	}
 }
