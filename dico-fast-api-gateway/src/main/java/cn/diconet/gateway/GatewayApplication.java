@@ -20,10 +20,10 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class GatewayApplication {
 
-    @Bean
-    public AccessFilter accessFilter() {
-        return new AccessFilter();
-    }
+//    @Bean
+//    public AccessFilter accessFilter() {
+//        return new AccessFilter();
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);

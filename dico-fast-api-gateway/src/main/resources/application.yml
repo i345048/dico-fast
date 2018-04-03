@@ -10,17 +10,20 @@ eureka:
   instance:
     prefer-ip-address: true
 
-zuul:
-  routes:
-    ucenter:
-      path: /ucenter/**
-      stripPrefix: true
-      serviceId: ucenter
-    api-gateway:
-      path: /api-gateway/**
-      stripPrefix: true
-      serviceId: api-gateway
-  ignored-services: '*'
+management:
+  security:
+    enabled: false
+#zuul:
+#  routes:
+#    ucenter:
+#      path: /ucenter/**
+#      stripPrefix: true
+#      serviceId: ucenter
+#    api-gateway:
+#      path: /api-gateway/**
+#      stripPrefix: true
+#      serviceId: api-gateway
+#  ignored-services: '*'
 #  ribbon:
 #    eager-load:
 #      enabled: true
