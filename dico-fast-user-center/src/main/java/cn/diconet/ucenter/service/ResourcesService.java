@@ -7,6 +7,8 @@ import cn.diconet.ucenter.model.Resources;
 import cn.diconet.ucenter.repository.ResourcesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -67,7 +69,16 @@ public class ResourcesService extends JpaService<ResourceDto,String>{
         return DozerMapper.mapList(repo.findAll(example),ResourceDto.class);
     }
 
+    @Override
+    public Page<ResourceDto> findAll(Example<ResourceDto> var1, int pageNum,int pageSize ) {
+        return null;
+    }
+
     public List<ResourceDto> findAll() {
         return DozerMapper.mapList(repo.findAll(),ResourceDto.class);
     }
+
+
+
+
 }

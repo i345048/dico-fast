@@ -2,7 +2,6 @@ package cn.diconet.modules.sys.web;
 
 import cn.diconet.common.util.DozerMapper;
 import cn.diconet.modules.sys.model.Resources;
-import cn.diconet.modules.sys.service.ResourcesFeignClient;
 import cn.diconet.modules.sys.service.ResourcesService;
 import cn.diconet.modules.sys.web.vo.Menu;
 import com.google.common.collect.Lists;
