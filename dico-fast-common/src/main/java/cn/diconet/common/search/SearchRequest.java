@@ -13,7 +13,7 @@ import java.util.Map;
  * @Description: 描述
  * @date 2018\3\29 002915:14
  */
-public class SearchFilter {
+public class SearchRequest {
     public enum Operator {
         EQ, LIKE, GT, LT, GTE, LTE, IN
     }
@@ -30,7 +30,7 @@ public class SearchFilter {
     @Getter
     private Operator operator;
 
-    public SearchFilter(String fieldName, Operator operator, Object value) {
+    public SearchRequest(String fieldName, Operator operator, Object value) {
         this.fieldName = fieldName;
         this.value = value;
         this.operator = operator;
@@ -39,8 +39,8 @@ public class SearchFilter {
     /**
      * searchParams中key的格式为OPERATOR_FIELDNAME
      */
-    public static Map<String, SearchFilter> parse(Map<String, Object> searchParams) {
-        Map<String, SearchFilter> filters = new HashMap<String, SearchFilter>();
+    public static Map<String, SearchRequest> parse(Map<String, Object> searchParams) {
+        Map<String, SearchRequest> filters = new HashMap<String, SearchRequest>();
 
         for (Map.Entry<String, Object> entry : searchParams.entrySet()) {
             // 过滤掉空值
@@ -60,7 +60,7 @@ public class SearchFilter {
             Operator operator = Operator.valueOf(names[names.length-1]);
 
             // 创建searchFilter
-            SearchFilter filter = new SearchFilter(filedName, operator, value);
+            SearchRequest filter = new SearchRequest(filedName, operator, value);
             filters.put(key, filter);
         }
 

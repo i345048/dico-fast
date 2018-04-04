@@ -1,6 +1,6 @@
 package cn.diconet.common.util;
 
-import cn.diconet.common.search.SearchFilter;
+import cn.diconet.common.search.SearchRequest;
 import org.apache.commons.lang3.Validate;
 import tk.mybatis.mapper.entity.Condition;
 import tk.mybatis.mapper.entity.Example;
@@ -59,15 +59,15 @@ public class DynamicConditionUtils {
 
         //去除查询条件前缀标识
         //Map<String, Object> searchParams = getParametersStartingWith(request, "search_");
-        Map<String, SearchFilter> filters =SearchFilter.parse(searchParams);
+        Map<String, SearchRequest> filters = SearchRequest.parse(searchParams);
 
         Condition condition=new Condition(clazz);
 
         for (Iterator iter=filters.entrySet().iterator();iter.hasNext();){
 
             Example.Criteria criteria= condition.createCriteria();
-            Map.Entry<String, SearchFilter> entry= (Map.Entry<String, SearchFilter>) iter.next();
-            SearchFilter filter=entry.getValue();
+            Map.Entry<String, SearchRequest> entry= (Map.Entry<String, SearchRequest>) iter.next();
+            SearchRequest filter=entry.getValue();
 
             switch (filter.getOperator()){
                 case EQ:
