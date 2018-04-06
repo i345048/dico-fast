@@ -1,3 +1,12 @@
+各组件UI访问URL汇总
+
+    链路追踪:http://localhost:8003
+    RabbitMQ:http://localhost:9200
+    后端console : http://localhost:9081/index
+    服务注册与发现中心:http://localhost:8001/
+
+
+
 RabbitMQ
 
     一、安装
