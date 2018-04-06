@@ -1,5 +1,6 @@
 package cn.diconet.ucenter.repository;
 
+import cn.diconet.common.base.JpaDao;
 import cn.diconet.ucenter.model.Resources;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +13,5 @@ import org.springframework.stereotype.Repository;
  * @date 2018\4\2 000216:53
  */
 @Repository
-public interface ResourcesRepo extends JpaRepository<Resources,String> {
+public interface ResourcesRepo extends JpaDao<Resources,String> {
 }

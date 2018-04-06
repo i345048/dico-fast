@@ -8,7 +8,8 @@ import cn.diconet.common.base.PageResult;
 import cn.diconet.common.base.Result;
 import cn.diconet.common.base.ResultGenerator;
 import cn.diconet.common.base.ServiceException;
-import cn.diconet.common.util.DynamicConditionUtils;
+import com.google.common.collect.Lists;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
+import java.util.List;
 
 @Controller
 @RequestMapping("/roles")
@@ -44,10 +45,11 @@ public class RoleController {
 
     @PostMapping("list")
     @ResponseBody
+    //@HystrixCommand(fallbackMethod = "listFallback")
     public PageResult<Role> list(PageResult pageResult){
        // PageInfo page=new PageInfo<Role>(service.findAll(DynamicConditionUtils.getParametersStartingWith(request,"search_"),pageResult.getPageNum(),pageResult.getLength()));
-        Map<String,Object> params=DynamicConditionUtils.getParametersStartingWith(request,"search_");
-        Page page=feignClient.getRoles((String) params.get("name_LIKE"),pageResult.getPageNum(),pageResult.getLength());
+        //Map<String,Object> params=DynamicConditionUtils.getParametersStartingWith(request,"search_");
+        Page page=feignClient.getRoles(null ,pageResult.getPageNum(),pageResult.getLength());
         pageResult.setData(page.getContent());
         pageResult.setRecordsTotal(page.getTotalElements());
 
@@ -112,5 +114,18 @@ public class RoleController {
     public String edit(@PathVariable Integer id, Model model){
         model.addAttribute("role",service.findById(id));
         return "/sys/sys_role_edit";
+    }
+
+    public PageResult<Role> listFallback(PageResult pageResult){
+        List<Role> roles= Lists.newArrayList();
+        Role role=new Role();
+        role.setId(1);
+        role.setName("role");
+        roles.add(role);
+
+        pageResult.setData(roles);
+        pageResult.setRecordsTotal(1);
+
+        return pageResult;
     }
 }

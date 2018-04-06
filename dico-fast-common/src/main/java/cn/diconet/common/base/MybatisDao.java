@@ -5,7 +5,7 @@ import tk.mybatis.mapper.common.ConditionMapper;
 import tk.mybatis.mapper.common.IdsMapper;
 import tk.mybatis.mapper.common.special.InsertListMapper;
 
-public interface MybatisMapper<T> extends BaseMapper<T>,
+public interface MybatisDao<T> extends BaseMapper<T>,
         ConditionMapper<T>,
         IdsMapper<T>,
         InsertListMapper<T> {

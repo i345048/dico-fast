@@ -1,5 +1,6 @@
 package cn.diconet.ucenter.service;
 
+import cn.diconet.common.base.JpaDao;
 import cn.diconet.common.base.JpaService;
 import cn.diconet.ucenter.model.Resources;
 import cn.diconet.ucenter.repository.ResourcesRepo;
@@ -23,59 +24,8 @@ public class ResourcesService extends JpaService<Resources,String>{
     private ResourcesRepo repo;
 
     @Override
-    public void save(Resources model) {
-
+    protected JpaDao getDao() {
+        return repo;
     }
-
-    @Override
-    public void save(List<Resources> models) {
-
-    }
-
-    @Override
-    public void deleteById(String id) {
-
-    }
-
-    @Override
-    public void deleteByIds(String ids) {
-
-    }
-
-    @Override
-    public void update(Resources model) {
-
-    }
-
-    @Override
-    public Resources findById(String id) {
-        return repo.findOne(id);
-    }
-
-    @Override
-    public Resources findBy(String fieldName, Object value) {
-        return null;
-    }
-
-    @Override
-    public List<Resources> findByIds(String ids) {
-        return null;
-    }
-
-    public List<Resources> findByExample(Example example){
-        return repo.findAll(example);
-    }
-
-    @Override
-    public Page<Resources> findAll(Example<Resources> var1, int pageNum,int pageSize ) {
-        return null;
-    }
-
-    public List<Resources> findAll() {
-        return repo.findAll();
-    }
-
-
-
 
 }

@@ -1,11 +1,11 @@
 package cn.diconet.ucenter.web;
 
-import cn.diconet.common.base.Result;
-import cn.diconet.common.base.ResultGenerator;
-import cn.diconet.common.base.ServiceException;
+import cn.diconet.common.base.*;
 import cn.diconet.ucenter.model.Permission;
 import cn.diconet.ucenter.model.Role;
 import cn.diconet.ucenter.service.RoleService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -15,71 +15,54 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class RoleController {
+@Api(value = "角色接口")
+public class RoleController extends BaseRestController<Role,Integer> {
 
     @Autowired
     private RoleService service;
 
+    @Override
+    protected JpaService<Role, Integer> getService() {
+        return service;
+    }
+
+    @ApiOperation(value="分页获取角色列表信息", notes="根据name获取角色列表信息")
     @GetMapping("roles")
-    public Page getRoles(@RequestParam(required=false) String name, @RequestParam int pageNum, @RequestParam int pageSize){
+    public Page list(@RequestParam(required=false) String name, @RequestParam int pageNum, @RequestParam int pageSize){
         Role role=new Role();
-        if(!StringUtils.isEmpty(name)){
-            role.setName(name);
-        }
-        Example example=Example.of(role);
-        return service.findAll(example,pageNum,pageSize);
+        role.setName(name);
+        return this.list(role,pageNum,pageSize);
     }
 
-//    @GetMapping("roles")
-//    public List<Role> getRoles() {
-//        return service.findAll();
-//    }
-
+    @ApiOperation(value="获取角色信息", notes="根据id获取角色信息")
     @GetMapping("roles/{id}")
-    public Role getRole(@PathVariable("id") Integer id) {
-        return null;
-    }
-
-    @GetMapping("roles/{id}/permissions")
-    public List<Permission> getRolePerms(@PathVariable("id") Integer id) {
-        return null;
+    public Role get(@PathVariable("id") Integer id) {
+        return this.get(id);
     }
 
     @PostMapping("roles")
-    public Result createRole(@RequestBody Role role) {
-
-        Result result = ResultGenerator.genSuccessResult();
-        try {
-            service.save(role);
-        } catch (ServiceException e) {
-            result = ResultGenerator.genFailResult(e.getMessage());
-            e.printStackTrace();
-        }
-        return result;
+    public Result create(@RequestBody Role role) {
+        return this.create(role);
     }
 
     @PutMapping("roles/{id}")
-    public Result putRole(@PathVariable Integer id, @RequestBody Role role) {
-        Result result = ResultGenerator.genSuccessResult();
-        try {
-            Role _role=service.findById(id);
-            _role.setName(role.getName());
-            service.update(_role);
-        } catch (ServiceException e) {
-            result = ResultGenerator.genFailResult(e.getMessage());
-            e.printStackTrace();
-        }
-        return result;
+    public Result put(@PathVariable Integer id, @RequestBody Role role) {
+        Role _role=service.findOne(id);
+        _role.setName(role.getName());
+        return this.put(_role);
     }
 
     @PatchMapping("roles/{id}")
-    public Result patchRole(@PathVariable("id") Integer id, @RequestBody Role role) {
-        return null;
+    public Result patch(@PathVariable("id") Integer id, @RequestBody Role role) {
+        Role _role=service.findOne(id);
+        _role.setName(role.getName());
+        //patch更新为部分属性,具体情况根据set上面的属性来决定
+        return this.patch(_role);
     }
-
 
     @DeleteMapping("roles/{id}")
-    public Result deleteRole(@PathVariable("id") Integer id) {
-        return null;
+    public Result delete(@PathVariable("id") Integer id) {
+        return this.delete(id);
     }
+
 }

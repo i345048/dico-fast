@@ -1,7 +1,7 @@
 package cn.diconet.cms.modules.sys.repository;
 
 import cn.diconet.cms.modules.sys.model.Resources;
-import cn.diconet.common.base.MybatisMapper;
+import cn.diconet.common.base.MybatisDao;
 
 /**
  * @author Administrator
@@ -9,6 +9,6 @@ import cn.diconet.common.base.MybatisMapper;
  * @Description: 描述
  * @date 2018\3\30 003016:49
  */
-public interface ResourcesRepo extends MybatisMapper<Resources>{
+public interface ResourcesRepo extends MybatisDao<Resources> {
 
 }

@@ -11,6 +11,19 @@ spring:
   #  show-sql: true
     hibernate:
       ddl-auto: none
+#  zipkin:
+#    base-url: http://localhost:8003
+  sleuth:
+    sampler:
+      percentage: 1.0 #指定按需采样的请求的百分比
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    rabbitmq:
+      queue: zipkin
 
 server:
   port: 9080
@@ -21,4 +34,10 @@ eureka:
       defaultZone: http://localhost:8001/eureka/
   instance:
     prefer-ip-address: true
+    status-page-url: http://localhost:${server.port}/swagger-ui.html
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.sleuth: DEBUG
 

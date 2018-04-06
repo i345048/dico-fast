@@ -14,4 +14,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ResourcesService extends MybatisService<Resources> {
 
+    @Override
+    public Resources findOne(Integer id) {
+        return null;
+    }
 }

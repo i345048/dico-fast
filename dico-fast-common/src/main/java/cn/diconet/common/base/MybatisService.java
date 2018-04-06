@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class MybatisService<T>  implements Service<T,Integer>  {
 
     @Autowired
-    protected MybatisMapper<T> mapper;
+    protected MybatisDao<T> mapper;
 
     private Class<T> modelClass;    // 当前泛型真实类型的Class
 
@@ -41,19 +41,6 @@ public abstract class MybatisService<T>  implements Service<T,Integer>  {
 
     public T findById(Integer id) {
         return mapper.selectByPrimaryKey(id);
-    }
-
-    @Override
-    public T findBy(String fieldName, Object value) {
-        try {
-            T model = modelClass.newInstance();
-            Field field = modelClass.getDeclaredField(fieldName);
-            field.setAccessible(true);
-            field.set(model, value);
-            return mapper.selectOne(model);
-        } catch (ReflectiveOperationException e) {
-            throw new ServiceException(e.getMessage(), e);
-        }
     }
 
     public List<T> findByIds(String ids) {

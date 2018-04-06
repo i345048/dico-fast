@@ -5,9 +5,6 @@ import java.util.List;
 
 /**
  * @author Administrator
- * @Title: ${file_name}
- * @Package ${package_name}
- * @Description: ${todo}
  * @date 2018\3\29 002911:11
  */
 public class PageResult<T> {

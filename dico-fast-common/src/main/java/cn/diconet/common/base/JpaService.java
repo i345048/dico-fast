@@ -1,19 +1,16 @@
 package cn.diconet.common.base;
 
-import cn.diconet.common.util.DynamicSearchUtils;
-import cn.diconet.common.util.ReflectUtils;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 
+import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
-public abstract class JpaService<T, K> implements Service<T, K> ,ExampleService<T>{
+public abstract class JpaService<T, K extends Serializable> implements Service<T, K> ,ExampleService<T>{
 
-    protected abstract JpaDao getDao();
+    protected abstract JpaDao<T, K> getDao();
 
     @Override
     public void save(T model) {
@@ -51,6 +48,10 @@ public abstract class JpaService<T, K> implements Service<T, K> ,ExampleService<
         Pageable page = new PageRequest(pageNum, pageSize);
         Example example=Example.of(t);
         return this.getDao().findAll(example, page);
+    }
+
+    public T findOne(K id){
+        return this.getDao().findOne(id);
     }
 
 //    public Page<T> findAll(Map<String, Object> params) {

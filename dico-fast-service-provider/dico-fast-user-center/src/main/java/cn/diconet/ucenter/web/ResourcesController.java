@@ -28,7 +28,6 @@ public class ResourcesController {
         Resources parent=new Resources();
         parent.setId(id);
         resources.setParent(parent);
-        Example<Resources> example=Example.of(resources);
-        return service.findByExample(example);
+        return service.findAll(resources);
     }
 }

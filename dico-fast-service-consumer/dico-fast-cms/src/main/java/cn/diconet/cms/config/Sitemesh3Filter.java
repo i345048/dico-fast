@@ -1,6 +1,5 @@
 package cn.diconet.cms.config;
 
-import cn.diconet.common.sitemesh.ScriptsTagRuleBundle;
 import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.sitemesh.config.ConfigurableSiteMeshFilter;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +17,7 @@ public class Sitemesh3Filter extends ConfigurableSiteMeshFilter {
     protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
         builder.addDecoratorPaths("/index", "/decorator/content","/decorator/footer","/decorator/header","/decorator/links","/decorator/scripts","/decorator/body")//拦截规则
                 .addExcludedPath("/static/**") //白名单
-               .addTagRuleBundle(new ScriptsTagRuleBundle())//自定义标签
+             //  .addTagRuleBundle(new ScriptsTagRuleBundle())//自定义标签
         ;
     }
 }

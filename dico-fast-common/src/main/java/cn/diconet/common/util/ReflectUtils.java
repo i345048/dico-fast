@@ -1,5 +1,8 @@
 package cn.diconet.common.util;
 
+import cn.diconet.common.base.ServiceException;
+
+import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -34,5 +37,23 @@ public class ReflectUtils {
             return null;
         }
         return (Class<T>) actualTypeArguments[index];
+    }
+
+    public static <T> T setFieldValue(Class<T> clazz, String fieldName, Object value) {
+
+        try {
+            T model = clazz.newInstance();
+            Field field = clazz.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            field.set(model, value);
+            return model;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

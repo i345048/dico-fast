@@ -15,32 +15,25 @@ spring:
     template-loader-path: classpath:/templates/ #模板加载路径 按需配置
     settings:
       number_format: '0.##' #数字格式化，无小数点
+
+#  zipkin:
+#    base-url: http://localhost:8003
+  sleuth:
+    sampler:
+      percentage: 1.0 #指定按需采样的请求的百分比
 #  profiles:
 #    active: dev
   application:
     name: webapp
-  datasource:
-    url: jdbc:h2:mem:test
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-    schema: classpath:db/schema.sql
 
-mybatis:
-    type-aliases-package: cn.diconet.modules.sys.model
-    mapper-locations: classpath:mapper/*.xml
-
-mapper:
-    mappers: cn.diconet.common.base.MybatisMapper
-    not-empty: false
-    identity: H2
-
-pagehelper:
-    helperDialect: mysql
-    reasonable: true
-    supportMethodsArguments: true
-    params: count=countSql
-    pageSizeZero: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  zipkin:
+    rabbitmq:
+      queue: zipkin
 
 server:
   port: 9081
@@ -59,10 +52,17 @@ ribbon:
     enabled: true
     clients: ucenter
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 5000
+#        readTimeout: 5000
+#        loggerLevel: basic
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000

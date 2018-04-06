@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.jpa.domain.Specification;
+import tk.mybatis.mapper.entity.Condition;
 
 import javax.persistence.criteria.*;
 import java.util.ArrayList;
@@ -77,5 +78,48 @@ public class DynamicSearchUtils {
         };
 
         return specification;
+    }
+
+    /**
+     * 将request中指定参数转换为查询条件
+     * @return
+     */
+    public static Condition getCondition(Map<String, Object> searchParams , Class clazz){
+
+        //去除查询条件前缀标识
+        //Map<String, Object> searchParams = getParametersStartingWith(request, "search_");
+        Map<String, SearchRequest> filters = SearchRequest.parse(searchParams);
+
+        Condition condition=new Condition(clazz);
+
+        for (Iterator iter=filters.entrySet().iterator();iter.hasNext();){
+
+            tk.mybatis.mapper.entity.Example.Criteria criteria= condition.createCriteria();
+            Map.Entry<String, SearchRequest> entry= (Map.Entry<String, SearchRequest>) iter.next();
+            SearchRequest filter=entry.getValue();
+
+            switch (filter.getOperator()){
+                case EQ:
+                    criteria.andEqualTo(filter.getFieldName(),filter.getValue());
+                    break;
+                case LIKE:
+                    criteria.andLike(filter.getFieldName(),"%" + filter.getValue() + "%");
+                    break;
+                case GT:
+                    criteria.andGreaterThan(filter.getFieldName(),filter.getValue());
+                    break;
+                case LT:
+                    criteria.andLessThan(filter.getFieldName(),filter.getValue());
+                    break;
+                case GTE:
+                    criteria.andGreaterThanOrEqualTo(filter.getFieldName(),filter.getValue());
+                    break;
+                case LTE:
+                    criteria.andLessThanOrEqualTo(filter.getFieldName(),filter.getValue());
+                    break;
+            }
+        }
+
+        return condition;
     }
 }

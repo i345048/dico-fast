@@ -55,9 +55,9 @@ public class SearchRequest {
                 throw new IllegalArgumentException(key + " is not a valid search filter name");
             }
             //String filedName = names[1];
-            String filedName = key.substring(0,key.indexOf(names[names.length-1])-1);
+            String filedName = key.substring(0, key.indexOf(names[names.length - 1]) - 1);
 
-            Operator operator = Operator.valueOf(names[names.length-1]);
+            Operator operator = Operator.valueOf(names[names.length - 1]);
 
             // 创建searchFilter
             SearchRequest filter = new SearchRequest(filedName, operator, value);
