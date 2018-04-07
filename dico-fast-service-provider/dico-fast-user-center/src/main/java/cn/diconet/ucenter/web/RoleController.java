@@ -31,13 +31,13 @@ public class RoleController extends BaseRestController<Role,Integer> {
     public Page list(@RequestParam(required=false) String name, @RequestParam int pageNum, @RequestParam int pageSize){
         Role role=new Role();
         role.setName(name);
-        return this.list(role,pageNum,pageSize);
+        return super.list(role,pageNum,pageSize);
     }
 
     @ApiOperation(value="获取角色信息", notes="根据id获取角色信息")
     @GetMapping("roles/{id}")
     public Role get(@PathVariable("id") Integer id) {
-        return this.get(id);
+        return super.get(id);
     }
 
     @PostMapping("roles")
@@ -49,7 +49,7 @@ public class RoleController extends BaseRestController<Role,Integer> {
     public Result put(@PathVariable Integer id, @RequestBody Role role) {
         Role _role=service.findOne(id);
         _role.setName(role.getName());
-        return this.put(_role);
+        return super.put(_role);
     }
 
     @PatchMapping("roles/{id}")
@@ -57,12 +57,12 @@ public class RoleController extends BaseRestController<Role,Integer> {
         Role _role=service.findOne(id);
         _role.setName(role.getName());
         //patch更新为部分属性,具体情况根据set上面的属性来决定
-        return this.patch(_role);
+        return super.patch(_role);
     }
 
     @DeleteMapping("roles/{id}")
     public Result delete(@PathVariable("id") Integer id) {
-        return this.delete(id);
+        return super.delete(id);
     }
 
 }

@@ -52,8 +52,8 @@ security:
     sso:
       loginPath: /login   # 登录路径
     client:
-      clientId: ea470e327b1e50a690ae
-      clientSecret: e249ec38aafc93f62d5b7f45b47cc9513665af8b
+      clientId: bdb908169c91546b5b28
+      clientSecret: 976a5f9150fad8672b2277112eb965422a5a36a1
       accessTokenUri: https://github.com/login/oauth/access_token
       userAuthorizationUri: https://github.com/login/oauth/authorize
     resource:

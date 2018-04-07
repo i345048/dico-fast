@@ -7,6 +7,10 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 /**
  * @author Administrator
@@ -17,7 +21,13 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableZuulProxy
 @EnableDiscoveryClient
+@RestController
 public class GatewayApplication {
+
+    @RequestMapping("/user")
+    public Principal user(Principal user) {
+        return user;
+    }
 
     @Bean
     public AccessFilter accessFilter() {
