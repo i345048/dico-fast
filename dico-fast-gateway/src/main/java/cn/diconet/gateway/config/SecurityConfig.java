@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.antMatcher("/**")
             // 所有请求都得经过认证和授权
             .authorizeRequests().anyRequest().authenticated()
-            .and().authorizeRequests().antMatchers("/api-gateway/ucenter/**").anonymous()
+           // .and().authorizeRequests().antMatchers("/api-gateway/ucenter/**").anonymous()
             .and().authorizeRequests().antMatchers("/", "/anon").permitAll()
             .and()
             // 这里之所以要禁用csrf，是为了方便。

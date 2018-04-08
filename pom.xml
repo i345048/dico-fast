@@ -16,6 +16,7 @@
         <module>dico-fast-service-provider</module>
         <module>dico-fast-service-consumer</module>
         <module>dico-fast-trace-zipkin-server</module>
+        <module>dico-fast-auth-server</module>
     </modules>
 
     <!-- Inherit defaults from Spring Boot -->
