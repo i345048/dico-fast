@@ -62,6 +62,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //                .and()
                 .withClient("webapp")
                 .scopes("xx")
-                .authorizedGrantTypes("implicit");
+                .authorizedGrantTypes("implicit")
+                .autoApprove(true) ;
     }
 }

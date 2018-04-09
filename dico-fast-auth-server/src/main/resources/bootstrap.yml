@@ -18,10 +18,19 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   redis:
     host: 127.0.0.1
-  data:
-    neo4j:
-      open-in-view: true
-
+#  data:
+#    neo4j:
+#      open-in-view: true
+  freemarker:
+    suffix: .html
+    charset: UTF-8
+    cache: false #缓存配置
+    content-type: text/html
+    enabled: true
+    request-context-attribute: req  #req访问request
+    template-loader-path: classpath:/templates/ #模板加载路径 按需配置
+    settings:
+      number_format: '0.##' #数字格式化，无小数点
 server:
   port: 8004
 

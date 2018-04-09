@@ -51,7 +51,14 @@ ribbon:
   eager-load:
     enabled: true
     clients: ucenter
-
+security:
+  oauth2:
+    resource:
+      id: webapp
+      user-info-uri: http://localhost:8002/uaa/user
+      prefer-token-info: false
+    sso:
+      login-path: http://localhost:8002/uaa/login
 #feign:
 #  client:
 #    config:
