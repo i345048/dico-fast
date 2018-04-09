@@ -1,4 +1,4 @@
-package cn.diconet.auth.config;
+package cn.diconet.ucenter.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,11 +23,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
             .exceptionHandling()
             .authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
             .and()
-            .requestMatchers().antMatchers("/login", "/oauth/authorize", "/oauth/token").and()
             .authorizeRequests()
             .anyRequest().authenticated()
             .and()
-            //.httpBasic();
-             .formLogin().permitAll();
+            .httpBasic();
     }
 }

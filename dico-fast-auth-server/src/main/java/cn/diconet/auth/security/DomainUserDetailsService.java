@@ -1,38 +1,56 @@
 package cn.diconet.auth.security;
 
-import cn.diconet.auth.domain.SysUser;
-import cn.diconet.auth.repository.SysUserRepository;
+import cn.diconet.auth.domain.RoleAuthorities;
+import cn.diconet.auth.domain.User;
+import cn.diconet.auth.domain.UserRole;
+import cn.diconet.auth.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.data.domain.Example;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
- * Created by wangyunfei on 2017/6/9.
+ * @author Thomas
+ * @Description: 描述
+ * @date 2018\4\9 0009
  */
-//@Service("userDetailsService")
+@Service
 @Slf4j
 public class DomainUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private SysUserRepository sysUserRepository;
+    private UserRepository repository;
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String lowcaseUsername = username.toLowerCase();
-        Optional<SysUser> realUser = sysUserRepository.findOneWithRolesByUsername(lowcaseUsername);
+        User user=new User();
+        user.setUsername(lowcaseUsername);
+        Example example=Example.of(user);
+        User realUser = repository.findOne(example);
 
+        Set<GrantedAuthority> userAuthotities = new HashSet();
+        List<UserRole> userRoles=realUser.getUserRoles();
 
+        for(UserRole userRole:userRoles){
 
-        return realUser.map(user -> {
-            Set<GrantedAuthority> grantedAuthorities = user.getAuthorities();
-            return new User(user.getUsername(),user.getPassword(),grantedAuthorities);
-        }).orElseThrow(() -> new UsernameNotFoundException("用户" + lowcaseUsername + "不存在!"));
+            List<RoleAuthorities> roleAuthorities=userRole.getRole().getAuthorities();
+            for(RoleAuthorities authorities:roleAuthorities){
+                userAuthotities.add(new SimpleGrantedAuthority(authorities.getAuthority().getValue()));
+            }
+        }
+
+        return new org.springframework.security.core.userdetails.User(realUser.getUsername(),realUser.getPassword(),userAuthotities);
     }
 }

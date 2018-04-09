@@ -25,8 +25,19 @@ management:
 #      serviceId: api-gateway
 #  ignored-services: '*'
 
-#饥饿加载
 zuul:
+  routes:
+    uaa:
+      path: /uaa/**
+      sensitiveHeaders:
+      serviceId: auth-server
+    user:
+      path: /user/**
+      sensitiveHeaders:
+      serviceId: ucenter
+  add-proxy-headers: true
+
+#饥饿加载
   ribbon:
     eager-load:
       enabled: true
@@ -43,19 +54,30 @@ zuul:
 #  MaxAutoRetriesNextServer:1
 
 
+#security:
+#  user:
+#    password: user  # 直接登录时的密码
+#  ignored: /
+#  sessions: never   # session策略
+#  oauth2:
+#    sso:
+#      loginPath: /login   # 登录路径
+#    client:
+#      clientId: bdb908169c91546b5b28
+#      clientSecret: 976a5f9150fad8672b2277112eb965422a5a36a1
+#      accessTokenUri: https://github.com/login/oauth/access_token
+#      userAuthorizationUri: https://github.com/login/oauth/authorize
+#    resource:
+#      userInfoUri: https://api.github.com/user
+#      preferTokenInfo: false
 security:
-  user:
-    password: user  # 直接登录时的密码
-  ignored: /
-  sessions: never   # session策略
   oauth2:
-    sso:
-      loginPath: /login   # 登录路径
     client:
-      clientId: bdb908169c91546b5b28
-      clientSecret: 976a5f9150fad8672b2277112eb965422a5a36a1
-      accessTokenUri: https://github.com/login/oauth/access_token
-      userAuthorizationUri: https://github.com/login/oauth/authorize
+      access-token-uri: http://localhost:8002/uaa/oauth/token
+      user-authorization-uri: http://localhost:8002/uaa/oauth/authorize
+      client-id: api-gateway
     resource:
-      userInfoUri: https://api.github.com/user
-      preferTokenInfo: false
+      user-info-uri: http://localhost:8002/uaa/user
+      prefer-token-info: false
+    sso:
+      login-path: http://localhost:8002/uaa/login

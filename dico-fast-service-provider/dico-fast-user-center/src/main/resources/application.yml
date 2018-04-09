@@ -11,6 +11,8 @@ spring:
   #  show-sql: true
     hibernate:
       ddl-auto: none
+  redis:
+    host: 127.0.0.1
 #  zipkin:
 #    base-url: http://localhost:8003
   sleuth:
@@ -41,3 +43,12 @@ logging:
     root: INFO
     org.springframework.cloud.sleuth: DEBUG
 
+security:
+  oauth2:
+    resource:
+      id: ucenter
+      user-info-uri: http://localhost:8002/uaa/user
+      prefer-token-info: false
+
+logging.level.org.springframework.security: DEBUG
+management.security.enabled: false

@@ -1,6 +1,5 @@
 package cn.diconet.auth.endpoint;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.oauth2.provider.endpoint.FrameworkEndpoint;
@@ -10,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by wangyunfei on 2017/7/24.
+ * @author Thomas
+ * @Description: 描述
+ * @date 2018\4\9 0009
  */
 @FrameworkEndpoint
 public class RevokeTokenEndpoint {

@@ -5,11 +5,11 @@ spring:
       name: auth-server
 
   jpa:
-    open-in-view: true
     database: mysql
     show-sql: true
-    hibernate:
-      ddl-auto: update
+    open-in-view: true
+#    hibernate:
+#      ddl-auto: update
   datasource:
     platform: mysql
     url: jdbc:mysql://127.0.0.1:3306/spring_cloud?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
@@ -18,6 +18,9 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   redis:
     host: 127.0.0.1
+  data:
+    neo4j:
+      open-in-view: true
 
 server:
   port: 8004
