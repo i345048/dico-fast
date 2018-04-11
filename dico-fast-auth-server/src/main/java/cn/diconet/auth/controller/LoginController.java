@@ -30,7 +30,7 @@ import java.util.Map;
 @Slf4j
 public class LoginController {
 
-    @RequestMapping("login")
+    @GetMapping("login")
     public String login(){
         return "index";
     }
