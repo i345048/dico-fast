@@ -59,6 +59,7 @@ security:
       prefer-token-info: false
     sso:
       login-path: http://localhost:8002/uaa/login
+
 #feign:
 #  client:
 #    config:
