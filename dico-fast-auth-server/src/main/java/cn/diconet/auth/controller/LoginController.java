@@ -11,10 +11,7 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.common.exceptions.InvalidGrantException;
 import org.springframework.security.oauth2.provider.endpoint.TokenEndpoint;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -39,6 +36,7 @@ public class LoginController {
     private TokenEndpoint tokenEndpoint;
 
     @PostMapping("/login")
+    @ResponseBody
     public Result<OAuth2AccessToken> login(@RequestParam Map<String, String> parameters){
         try {
             log.info("login  start ......");
